@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/favicon-32x32.png' %}">
+    <title>Lyubomir Dakov</title>
+</head>
+
+<body>
+
+<header>
+    <p>{% include 'main/partials/nav.html' %}</p>
+</header>
+
+<main>
+    {% block page_content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <span>LYUBOMIR DAKOV PORTFOLIO</span>
+</footer>
+
+</body>
+</html>
