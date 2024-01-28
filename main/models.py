@@ -6,7 +6,6 @@ class BasePageContent(models.Model):
     last_name = models.CharField(max_length=30)
     profession = models.CharField(max_length=50)
 
-
     class Meta:
         abstract = True
 
