@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     "main.apps.MainConfig",
     "projects.apps.ProjectsConfig",
+    "contact.apps.ContactConfig"
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,25 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% block page_content %}
+
+<!--{{ form }}-->
+<form action="{% url 'contact' %}" method="post">
+    <div>
+        <p><strong>Full name: <br>{{ form.full_name }}</strong></p>
+    </div>
+    <div>
+        <p><strong>Organization: </strong>{{ form.organization }}</p>
+    </div>
+    <div>
+        <p><strong>Email: </strong>{{ form.email }}</p>
+    </div>
+    <div>
+        <p><strong>Message: </strong>{{ form.message }}</p>
+    </div>
+    <div>
+        <button type="submit">Send</button>
+    </div>
+<!--    {% csrf_token %}-->
+</form>
+
+{% endblock %}
