@@ -53,8 +53,7 @@ class Project(models.Model):
     github_link = models.URLField(
         validators=[
             URLValidator(),
-            MinLengthValidator(limit_value=GITHUB_LINK_MIN_LENGTH, message=GITHUB_LINK_MIN_LENGTH_ERROR_MESSAGE)]
-        ,
+            MinLengthValidator(limit_value=GITHUB_LINK_MIN_LENGTH, message=GITHUB_LINK_MIN_LENGTH_ERROR_MESSAGE)],
         null=False,
         blank=False,
         unique=True)

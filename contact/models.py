@@ -30,3 +30,9 @@ class Contact(models.Model):
         default=timezone.now(),
         null=False,
         blank=False)
+
+    def __str__(self):
+        return self.name
+
+
+

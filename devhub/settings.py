@@ -114,3 +114,7 @@ STATIC_URL = "staticfiles/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [BASE_DIR / 'staticfiles', ]
+
+MEDIA_ROOT = "/home/lyubomir/Documents/PycharmProjects/DjangoPortfolio/devhub/staticfiles/files"
+
+MEDIA_URL =
