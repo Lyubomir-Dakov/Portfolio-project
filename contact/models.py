@@ -19,8 +19,7 @@ class Contact(models.Model):
     email = models.EmailField(
         validators=[EmailValidator()],
         null=False,
-        blank=False,
-        unique=True)
+        blank=False)
     message = models.TextField(
         max_length=MESSAGE_MAX_LENGTH,
         null=False,

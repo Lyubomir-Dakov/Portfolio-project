@@ -115,6 +115,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [BASE_DIR / 'staticfiles', ]
 
-MEDIA_ROOT = "/home/lyubomir/Documents/PycharmProjects/DjangoPortfolio/devhub/staticfiles/files"
-
-MEDIA_URL =
+EMAIL_BACKEND = config("EMAIL_BACKEND")
+EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_PORT = config("EMAIL_PORT")
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")

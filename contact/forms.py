@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import EmailValidator
+from django.core.mail import send_mail
 
 
 class ContactForm(forms.Form):
@@ -8,5 +9,12 @@ class ContactForm(forms.Form):
     email = forms.EmailField(validators=[EmailValidator()], required=True)
     message = forms.CharField(widget=forms.Textarea, max_length=2000)
 
-    def send_mail(self):
-        pass
+    @staticmethod
+    def send_mail(name, email):
+        send_mail(
+            "Lyubomir Dakov",
+            f"Hello, {name}",
+            "lyubomir.valeriev.dakov@gmail.com",
+            [email],
+            fail_silently=False,
+        )

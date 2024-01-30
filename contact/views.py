@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.views.generic import FormView
 from .forms import ContactForm
 from .models import Contact
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 class ContactFormView(FormView):
@@ -21,7 +23,17 @@ class ContactFormView(FormView):
             organization=organization,
             email=email,
             message=message)
-        form.send_mail()
+
+        subject = "Lyubomir Dakov"
+        message = f"""
+        Hello, {name}!
+        Thank you from contacting me.
+        
+        Best regards
+        Lyubomir"""
+        from_email = settings.EMAIL_HOST_USER
+        recipient_list = [email]
+        send_mail(subject=subject, message=message, from_email=from_email, recipient_list=recipient_list)
         return super().form_valid(form)
 
 
