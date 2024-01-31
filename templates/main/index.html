@@ -6,22 +6,23 @@
 <head>
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/logo.png' %}">
     <title>Lyubomir Dakov</title>
+
 </head>
 
 <body>
 
-<header>
-    <p>{% include 'main/partials/nav.html' %}</p>
-</header>
+    <header>
+        <p>{% include 'main/partials/nav.html' %}</p>
+    </header>
 
-<main>
-    {% block page_content %}
-    {% endblock %}
-</main>
+    <main>
+        {% block page_content %}
+        {% endblock %}
+    </main>
 
-<footer>
-    <span>LYUBOMIR DAKOV PORTFOLIO</span>
-</footer>
+    <footer>
+        <span>LYUBOMIR DAKOV PORTFOLIO</span>
+    </footer>
 
 </body>
 </html>
