@@ -3,26 +3,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--HEAD-->
 <head>
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/logo.png' %}">
-    <title>Lyubomir Dakov</title>
 
+    {% block background_image %}
+    {% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Lyubomir Dakov</title>
 </head>
 
+
+<!--BODY-->
 <body>
+    <style>
+        body {
+            background-image: url('{% static "images/background/home_page.png" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+        }
 
-    <header>
-        <p>{% include 'main/partials/nav.html' %}</p>
-    </header>
+    </style>
 
-    <main>
-        {% block page_content %}
-        {% endblock %}
-    </main>
+<header>
+    <p>{% include 'main/partials/nav.html' %}</p>
+</header>
 
-    <footer>
-        <span>LYUBOMIR DAKOV PORTFOLIO</span>
-    </footer>
+<main>
+    {% block page_content %}
+    {% endblock %}
+</main>
 
+<footer>
+    <span>LYUBOMIR DAKOV PORTFOLIO</span>
+</footer>
 </body>
 </html>
