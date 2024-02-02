@@ -6,30 +6,25 @@
 <!--HEAD-->
 <head>
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/logo.png' %}">
-
-    {% block background_image %}
-    {% endblock %}
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact_icons.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
     <title>Lyubomir Dakov</title>
 </head>
 
 
+
 <!--BODY-->
 <body>
-    <style>
-        body {
-            background-image: url('{% static "images/background/home_page.png" %}');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center center;
-        }
+    {% block background_image %}
+    {% endblock %}
 
-    </style>
+
 
 <header>
     <p>{% include 'main/partials/nav.html' %}</p>

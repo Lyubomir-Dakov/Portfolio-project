@@ -1,0 +1,76 @@
+.social-icons {
+  margin: 0;
+  padding: 0;
+  background: #262626;
+}
+
+.social-icons ul {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  position: absolute;
+  top: 30%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.social-icons ul li {
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+
+
+.social-icons ul li a {
+  width: 60px; /* Smaller width */
+  height: 60px; /* Smaller height */
+  background-color: #fff;
+  text-align: center;
+  line-height: 60px; /* Adjusted line height for vertical alignment */
+  font-size: 28px; /* Smaller font size for the icon */
+  margin: 0 5px; /* Reduced margin */
+  display: block;
+  border-radius: 50%; /* Keeps it circular */
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff; /* You can adjust the border width if needed */
+  z-index: 1;
+}
+
+
+.social-icons ul li a .icon {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+}
+
+.social-icons ul li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.social-icons ul li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+.social-icons ul li a:hover:before {
+  top: 0;
+}
+
+.social-icons ul li:nth-child(1) a:before {
+  background: #181717;
+}
+
+.social-icons ul li:nth-child(2) a:before {
+  background: #0077b5;
+}
+
