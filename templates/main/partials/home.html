@@ -10,37 +10,50 @@
             background-attachment: fixed;
             background-position: center center;
         }
-
 </style>
-
 {% endblock %}
 
 {% block page_content %}
 <h1>{{ content.profession }}</h1>
 <h1>{{ content.first_name }} {{ content.last_name }}</h1>
 <p>{{ content.introduction }}</p>
-<p>{{ content.phone_number }}</p>
-<p>{{ content.email }}</p>
-<p>{{ content.github_link }}</p>
-<p>{{ content.linkedin_link }}</p>
 <p>{{ content.cv }}</p>
 
 
-
-
 <div class="social-icons">
-  <ul>
-    <li>
-      <a href="https://github.com/Lyubomir-Dakov">
-        <i class="fab fa-github icon"></i>
-      </a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/lyubomir-dakov-10887112b/">
-        <i class="fab fa-linkedin-in icon"></i>
-      </a>
-    </li>
-  </ul>
+    <ul>
+        <li>
+            <div class="contact-button">
+                <span class="content">{{ content.email }}</span>
+                <a><i class="fas fa-envelope icon"></i></a>
+            </div>
+        </li>
+        <li>
+            <div class="contact-button">
+                <span class="content">{{ content.phone_number }}</span>
+                <a><i class="fas fa-phone icon"></i></a>
+            </div>
+        </li>
+        <li>
+            <div class="contact-button">
+                <span class="content">Sofia, Bulgaria</span>
+                <a><i class="fas fa-map-marker-alt icon"></i></a>
+            </div>
+        </li>
+
+        <li>
+            <a href="{{ content.linkedin_link }}">
+                <i class="fab fa-linkedin-in icon"></i>
+            </a>
+        </li>
+        <li>
+            <a href="{{ content.github_link }}">
+                <i class="fab fa-github icon"></i>
+            </a>
+        </li>
+
+
+    </ul>
 </div>
 
 

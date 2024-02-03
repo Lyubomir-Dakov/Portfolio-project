@@ -1,80 +1,3 @@
-.nav-link:hover, .nav-link.active {
-    color: white;
-    text-shadow: 0 0 15px #ffffff, 0 0 25px #ffffff, 0 0 25px #ffffff;
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-}
-
-.nav-link {
-    color: white;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s ease-in-out;
-    font-size: 18px
-}
-
-
-
-
-
-
-
-
-
-/* Pulse */
-@-webkit-keyframes nav-link {
-  25% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-  75% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-}
-@keyframes nav-link {
-  25% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-  75% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-}
-.nav-link {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
-.nav-link:hover, .nav-link:focus, .nav-link:active {
-  -webkit-animation-name: hvr-pulse;
-  animation-name: hvr-pulse;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 body {
     background-image: url('{% static "/images/background/home_page.png" %}'); /* The URL should be the path to your image */
     background-size: cover; /* Cover ensures that the background covers the entire element */
@@ -83,6 +6,7 @@ body {
     background-position: center center; /* This will center the image in the element */
 }
 
+/* Navigation bar */
 .navbar {
     border: 2px solid rgba(255,255,255,.25);
     border-color: #0074e8;
@@ -95,6 +19,8 @@ body {
     padding: 0.5rem;
 }
 
+
+/* Lyubomir Dakov */
 .navbar-brand {
     font-weight: 500;
     color: white;
@@ -105,6 +31,109 @@ body {
     color: white !important;
 }
 
+
+/* Home, About, Experience, Projects anchors */
+.nav-link-box {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.nav-link {
+    color: white;
+    font-weight: 500;
+    position: relative;
+    transition: all .3s;
+
+    letter-spacing: -2px;
+
+    span {
+        transition: all .5s;
+        font-size: 18px;
+    }
+    span:nth-child(2) {
+        transition-delay: .1s;
+    }
+    span:nth-child(3) {
+        transition-delay: .2s;
+    }
+    span:nth-child(4) {
+        transition-delay: .3s;
+    }
+    span:nth-child(5) {
+        transition-delay: .4s;
+    }
+    span:nth-child(6) {
+        transition-delay: .5s;
+    }
+        span:nth-child(7) {
+        transition-delay: .6s;
+    }
+    span:nth-child(8) {
+        transition-delay: .7s;
+    }
+    span:nth-child(9) {
+        transition-delay: .8s;
+    }
+    span:nth-child(10) {
+        transition-delay: .9s;
+    }
+    &:hover {
+        span {
+            font-weight: 700;
+        }
+        span:nth-child(10) {
+            transition-delay: .9s;
+        }
+        span:nth-child(9){
+            transition-delay: .8s;
+        }
+        span:nth-child(8){
+            transition-delay: .7s;
+        }
+        span:nth-child(7){
+            transition-delay: .6s;
+        }
+        span:nth-child(6){
+            transition-delay: .5s;
+        }
+        span:nth-child(5){
+            transition-delay: .4s;
+        }
+        span:nth-child(4){
+            transition-delay: .3s;
+        }
+        span:nth-child(3){
+            transition-delay: .2s;
+        }
+        span:nth-child(2){
+            transition-delay: .1s;
+        }
+        span:nth-child(1){
+            transition-delay: 0s;
+        }
+    }
+    &.nav-link {
+        &:hover {
+            $color: #ddd;
+            text-shadow: 1px 1px 0px $color, 2px 2px 0px $color, 3px 3px 0px $color;
+        }
+    }
+    &.nav-link {
+        &:hover {
+            $color: #ddd;
+            //color: darkmagenta;
+            border-color: darkmagenta;
+        }
+    }
+}
+
+.nav-link:hover {
+    color: #0074e8;
+}
+
+/* Contact me button */
 .contact-me {
     border: 2px solid rgba(255,255,255,.25);
     border-color: #0074e8;
@@ -123,88 +152,12 @@ body {
     right: 8px;
     font-weight: 500;
     font-size: 18px;
-}
 
-.contact-me:hover {
-    box-shadow: 0 0 12px #ffffff;
-    background-color: #300852;
-}
-
-.nav-link {
-    color: white;
+    span {
     font-weight: 500;
-    position: relative;
-    transition: color 0.3s ease-in-out;
-    font-size: 18px
-}
-
-.nav-link:hover, .nav-link.active {
-    color: white;
-    text-shadow: 0 0 15px #ffffff, 0 0 25px #ffffff, 0 0 25px #ffffff;
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-}
-
-
-
-
-.hero-section {
-    background: url(home_page.png) no-repeat center;
-    background-size: cover;
-    wight: 100%;
-    height: 100vh;
-}
-
-.hero-section::before {
-    background-color: rgba(0, 0, 0, 0.6);
-    content="";
-    position: absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left: 0;
-}
-
-
-.navbar-toggler {
-    border: none;
-    font-size: 1.25rem;
-}
-
-.navbar-toggler:focus, .btn-close:focus {
-    box-shadow: none;
-    outline: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-a{
-  color: #000;
-  text-decoration: none;
-  span{
-    font-weight: 100;
     transition: all .5s;
-    border-bottom: 1px solid;
+    font-size: 18px;
+    letter-spacing: normal;
   }
   span:nth-child(2){
     transition-delay: .1s;
@@ -215,9 +168,45 @@ a{
   span:nth-child(4){
     transition-delay: .3s;
   }
-  &:hover{
-    span{
+  span:nth-child(5){
+    transition-delay: .4s;
+  }
+  span:nth-child(6){
+    transition-delay: .5s;
+  }
+  span:nth-child(7){
+    transition-delay: .6s;
+  }
+  span:nth-child(8){
+    transition-delay: .7s;
+  }
+  span:nth-child(9){
+    transition-delay: .8s;
+  }
+  span:nth-child(10){
+    transition-delay: .9s;
+  }
+  &:hover {
+    span {
       font-weight: 700;
+    }
+    span:nth-child(10){
+      transition-delay: .9s;
+    }
+    span:nth-child(9){
+      transition-delay: .8s;
+    }
+    span:nth-child(8){
+      transition-delay: .7s;
+    }
+    span:nth-child(7){
+      transition-delay: .6s;
+    }
+    span:nth-child(6){
+      transition-delay: .5s;
+    }
+    span:nth-child(5){
+      transition-delay: .4s;
     }
     span:nth-child(4){
       transition-delay: .3s;
@@ -233,18 +222,17 @@ a{
     }
   }
 
-
-  &.hover-shadow{
-    &:hover{
-      $color: #ddd;
-    text-shadow: 1px 1px 0px $color, 2px 2px 0px $color, 3px 3px 0px $color;
-    }
-  }
-  &.hover-color{
+  &.contact-me {
     &:hover{
       $color: #ddd;
     //color: darkmagenta;
-    border-color: darkmagenta;
+
     }
   }
+}
+
+.contact-me:hover {
+    box-shadow: 0 0 12px #ffffff;
+    background-color: #300852;
+    color: #0074e8;
 }
