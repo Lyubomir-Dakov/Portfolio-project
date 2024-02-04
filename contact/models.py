@@ -26,7 +26,7 @@ class Contact(models.Model):
         blank=False
     )
     date = models.DateField(
-        default=timezone.now(),
+        auto_now_add=True,
         null=False,
         blank=False)
 
