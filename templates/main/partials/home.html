@@ -11,6 +11,7 @@
             background-position: center center;
         }
 </style>
+
 {% endblock %}
 
 {% block page_content %}
@@ -24,23 +25,22 @@
     <ul>
         <li>
             <div class="contact-button">
-                <span class="content">{{ content.email }}</span>
                 <a><i class="fas fa-envelope icon"></i></a>
+                <span class="content">{{ content.email }}</span>
             </div>
         </li>
         <li>
             <div class="contact-button">
-                <span class="content">{{ content.phone_number }}</span>
                 <a><i class="fas fa-phone icon"></i></a>
+                <span class="content">{{ content.phone_number }}</span>
             </div>
         </li>
         <li>
             <div class="contact-button">
-                <span class="content">Sofia, Bulgaria</span>
                 <a><i class="fas fa-map-marker-alt icon"></i></a>
+                <span class="content">{{ content.location }}</span>
             </div>
         </li>
-
         <li>
             <a href="{{ content.linkedin_link }}">
                 <i class="fab fa-linkedin-in icon"></i>
@@ -51,8 +51,6 @@
                 <i class="fab fa-github icon"></i>
             </a>
         </li>
-
-
     </ul>
 </div>
 
