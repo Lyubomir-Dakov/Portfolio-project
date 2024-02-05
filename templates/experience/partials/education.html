@@ -1,0 +1,16 @@
+{% extends 'experience/experience.html' %}
+{% load static %}
+
+
+{% block education_content %}
+<ul>
+     {% for education in education_list %}
+        <li>
+            <p>{{ education.name }}</p>
+            <p>{{ education.logo_svg|safe }}</p>
+
+
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

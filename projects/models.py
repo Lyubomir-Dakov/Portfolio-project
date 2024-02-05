@@ -58,5 +58,8 @@ class Project(models.Model):
         blank=False,
         unique=True)
 
+    # class Meta:
+    #     ordering = ["-year"]
+
     def __str__(self):
         return self.title

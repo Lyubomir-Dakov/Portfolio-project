@@ -18,8 +18,12 @@ class BaseAbility(models.Model):
         null=False,
         blank=False)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         abstract = True
+        ordering = ["name"]
 
 
 class Skill(BaseAbility):
@@ -75,7 +79,7 @@ class BaseExperienceContent(models.Model):
     )
     technologies = models.ManyToManyField(
         Technology,
-        blank=False)
+        blank=True)
 
     logo_svg = models.TextField(
         blank=True,
@@ -87,6 +91,9 @@ class BaseExperienceContent(models.Model):
     def save(self, *args, **kwargs):
         self.full_clean()
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         abstract = True
