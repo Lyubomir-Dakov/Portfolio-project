@@ -1,3 +1,5 @@
+import datetime
+
 from django.core.exceptions import ValidationError
 from django.db import models
 
@@ -44,6 +46,8 @@ class Certificate(BaseAbility):
         null=True,
         blank=True
     )
+
+    date = models.CharField()
 
 
 class BaseExperienceContent(models.Model):

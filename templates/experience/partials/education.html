@@ -6,8 +6,30 @@
 <ul>
      {% for education in education_list %}
         <li>
-            <p>{{ education.name }}</p>
-            <p>{{ education.logo_svg|safe }}</p>
+            <p>{{ education.logo_svg|safe }}   {{ education.name }}</p>
+            <p>{{ education.speciality }}</p>
+            <p>{{ education.location }}</p>
+            <p>{{ education.start_date }} - {{ education.end_date }}</p>
+            <ul>
+                {% for technology in education.technologies.all %}
+                    <li>{{ technology.name }}:  {{ technology.logo_svg|safe }}</li>
+                {% endfor %}
+            </ul>
+
+            <ul>
+                {% for skill in education.skills.all %}
+                    <li>{{ skill.name }}</li>
+                {% endfor %}
+            </ul>
+
+            <ul>
+                {% for certificate in education.certificates.all %}
+                    <li>{{ certificate.name  }} {{ certificate.date }}</li>
+                    <li>{{ certificate.link }}</li>
+                {% endfor %}
+            </ul>
+
+
 
 
         </li>
