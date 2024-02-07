@@ -19,9 +19,22 @@ class CertificateAdmin(admin.ModelAdmin):
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = [
+        ["Base information", {"fields": ["name", "logo_svg", "location", "title"]}],
+        ["Learned", {"fields": ["technologies", "skills"]}],
+        ["Period", {"fields": ["start_date", "end_date"]}],
+        ["History records", {"fields": ["created_on", "updated_on"]}]
+    ]
+    readonly_fields = ["created_on", "updated_on"]
 
 
 @admin.register(Education)
 class EducationAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = [
+        ["Base information", {"fields": ["name", "logo_svg", "location", "speciality"]}],
+        ["Learned", {"fields": ["technologies", "skills"]}],
+        ["Certificates", {"fields": ["certificates"]}],
+        ["Period", {"fields": ["start_date", "end_date"]}],
+        ["History records", {"fields": ["created_on", "updated_on"]}]
+    ]
+    readonly_fields = ["created_on", "updated_on"]
