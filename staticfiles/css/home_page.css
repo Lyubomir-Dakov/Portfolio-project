@@ -178,7 +178,7 @@ body {
 .wrap {
     position: absolute;
     top: 10vh;
-    left: 38vw;
+    left: 37.5vw;
     /*transform: translate(-0%, -10%);*/
     margin:0 auto;
     display:flex;
