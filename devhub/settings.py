@@ -29,7 +29,9 @@ INSTALLED_APPS = [
     "main.apps.MainConfig",
     "projects.apps.ProjectsConfig",
     "contact.apps.ContactConfig",
-    "experience.apps.ExperienceConfig"
+    "experience.apps.ExperienceConfig",
+
+    "fontawesomefree"
 ]
 
 MIDDLEWARE = [

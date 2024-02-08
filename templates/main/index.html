@@ -8,11 +8,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo/logo.png' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/contact_icons.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-
-
+    {% block additional_links %}
+    {% endblock %}
 
     <title>Lyubomir Dakov</title>
 </head>
@@ -21,22 +19,17 @@
 
 <!--BODY-->
 <body>
-    {% block background_image %}
-    {% endblock %}
+    <header>
+        <p>{% include 'main/partials/nav.html' %}</p>
+    </header>
 
+    <main>
+        {% block page_content %}
+        {% endblock %}
+    </main>
 
-
-<header>
-    <p>{% include 'main/partials/nav.html' %}</p>
-</header>
-
-<main>
-    {% block page_content %}
-    {% endblock %}
-</main>
-
-<footer>
-    <span>LYUBOMIR DAKOV PORTFOLIO</span>
-</footer>
+    <footer>
+        <span>LYUBOMIR DAKOV PORTFOLIO</span>
+    </footer>
 </body>
 </html>

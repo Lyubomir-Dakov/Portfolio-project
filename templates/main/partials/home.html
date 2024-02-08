@@ -1,60 +1,66 @@
 {% extends 'main/index.html' %}
 {% load static %}
 
-{% block background_image %}
-<style>
-        body {
-            background-image: url('{% static "images/background/home_page.png" %}');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center center;
-        }
-</style>
-
+{% block additional_links %}
+    <link rel="stylesheet" href="{% static 'css/home_page.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 {% endblock %}
 
+
 {% block page_content %}
-<h1>{{ content.profession }}</h1>
-<h1>{{ content.first_name }} {{ content.last_name }}</h1>
-<p>{{ content.introduction }}</p>
-<p>{{ content.cv }}</p>
+    <div class="home-page-content">
+        <div class="base-information">
+            <h3>{{ content.profession }}</h3>
+            <h1>{{ content.first_name }} {{ content.last_name }}</h1>
+            <p class="introduction">{{ content.introduction }}</p>
 
+        </div>
 
-<div class="social-icons">
-    <ul>
-        <li>
-            <div class="contact-button">
-                <a><i class="fas fa-envelope icon"></i></a>
-                <span class="content">{{ content.email }}</span>
-            </div>
-        </li>
-        <li>
-            <div class="contact-button">
-                <a><i class="fas fa-phone icon"></i></a>
-                <span class="content">{{ content.phone_number }}</span>
-            </div>
-        </li>
-        <li>
-            <div class="contact-button">
-                <a><i class="fas fa-map-marker-alt icon"></i></a>
-                <span class="content">{{ content.location }}</span>
-            </div>
-        </li>
-        <li>
-            <a href="{{ content.linkedin_link }}">
-                <i class="fab fa-linkedin-in icon"></i>
-            </a>
-        </li>
-        <li>
-            <a href="{{ content.github_link }}">
-                <i class="fab fa-github icon"></i>
-            </a>
-        </li>
-    </ul>
-</div>
+        <div class="social-icons">
+            <ul>
+                <li>
+                    <div class="contact-button">
+                        <a><i class="fas fa-envelope icon"></i></a>
+                        <span class="content">{{ content.email }}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="contact-button">
+                        <a><i class="fas fa-phone icon"></i></a>
+                        <span class="content">{{ content.phone_number }}</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="contact-button">
+                        <a><i class="fas fa-map-marker-alt icon"></i></a>
+                        <span class="content">{{ content.location }}</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="{{ content.linkedin_link }}">
+                        <i class="fab fa-linkedin-in icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ content.github_link }}">
+                        <i class="fab fa-github icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-
+        <div class='wrap'>
+            <button class="download-cv">
+                <i class="fa-solid fa-share"></i>
+                <span class="line"></span>
+                <span>CV</span>
+            </button>
+        </div>
+    </div>
 {% endblock %}
 
 
