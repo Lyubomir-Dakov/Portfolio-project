@@ -1,6 +1,8 @@
 from django.core.validators import RegexValidator, EmailValidator, URLValidator
 from django.db import models
 
+from experience.models import Skill, Technology  # type: ignore
+
 
 class BasePageContent(models.Model):
     FIRST_NAME_VERBOSE_NAME = "Name"
@@ -105,10 +107,15 @@ class HomePageContent(BasePageContent):
 
 class AboutPageContent(BasePageContent):
     ABOUT_VERBOSE_NAME = "About"
+    TECHNOLOGIES_VERBOSE_NAME = "Technologies"
 
     about = models.TextField(
         verbose_name=ABOUT_VERBOSE_NAME
     )
+
+    technologies = models.ManyToManyField(
+        Technology,
+        verbose_name=TECHNOLOGIES_VERBOSE_NAME)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - About Page"

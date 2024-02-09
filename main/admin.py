@@ -21,6 +21,7 @@ class AboutPageAdmin(admin.ModelAdmin):
     fieldsets = [
         ["Names", {"fields": ["first_name", "last_name"]}],
         ["Base information", {"fields": ["profession", "about"]}],
+        ["Technologies", {"fields": ["technologies"]}],
         ["History records", {"fields": ["created_on", "updated_on"]}],
     ]
     readonly_fields = ["created_on", "updated_on"]
