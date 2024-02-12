@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block education_content %}
+{% block experience_content %}
 <ul>
      {% for education in education_list %}
         <li>
@@ -12,7 +12,7 @@
             <p>{{ education.start_date }} - {{ education.end_date }}</p>
             <ul>
                 {% for technology in education.technologies.all %}
-                    <li>{{ technology.name }}:  {{ technology.logo_svg|safe }}</li>
+<!--                    <li>{{ technology.name }}:  {{ technology.logo_svg|safe }}</li>-->
                 {% endfor %}
             </ul>
 
@@ -28,10 +28,6 @@
                     <li>{{ certificate.link }}</li>
                 {% endfor %}
             </ul>
-
-
-
-
         </li>
     {% endfor %}
 </ul>

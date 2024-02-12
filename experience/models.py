@@ -13,7 +13,13 @@ def validate_end_date(start_date, end_date):
 
 
 class BaseAbility(models.Model):
+    DISPLAY_ORDER_DEFAULT = 0
+    DISPLAY_ORDER_HELP_TEXT = "Determines display order in the list"
     NAME_MAX_LENGTH = 50
+
+    display_order = models.PositiveIntegerField(
+        default=DISPLAY_ORDER_DEFAULT,
+        help_text=DISPLAY_ORDER_HELP_TEXT)
 
     name = models.CharField(
         max_length=NAME_MAX_LENGTH,
@@ -25,7 +31,7 @@ class BaseAbility(models.Model):
 
     class Meta:
         abstract = True
-        ordering = ["name"]
+        ordering = ["display_order"]
 
 
 class Skill(BaseAbility):

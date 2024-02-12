@@ -4,17 +4,20 @@ from .models import Skill, Technology, Certificate, Work, Education
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("name", "display_order")
+    list_editable = ("display_order",)
 
 
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("name", "display_order")
+    list_editable = ("display_order",)
 
 
 @admin.register(Certificate)
 class CertificateAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("name", "link", "display_order")
+    list_editable = ("link", "display_order")
 
 
 @admin.register(Work)

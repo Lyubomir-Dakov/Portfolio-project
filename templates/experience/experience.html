@@ -2,21 +2,44 @@
 {% load static %}
 
 {% block additional_links %}
-    <link rel="stylesheet" href="{% static 'css/experience_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/experience_page.css' %}">
 {% endblock %}
 
 {% block page_content %}
 
-    <div style="height:130px"></div>
+<div class="experience-page-content">
+    <div class="left-content">
+        <div class="navigation-content">
+            <h3 class="content-title" onclick="toggleVisibility('education-list')">Education</h3>
+            <div class="experience-objects">
+                <ul id="education-list" class="ul-objects">
+                    {% for education in educations %}
+                    <li class="li-object" onclick="loadContent('education', {{ education.id }})">{{ education.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
 
-    <h2><a href="{% url 'education' %}">Education</a></h2>
-        {% block education_content %}
-        {% endblock %}
+        <div class="navigation-content">
+            <h3 class="content-title" onclick="toggleVisibility('work-list')">Work</h3>
+            <div class="experience-objects">
+                <ul id="work-list" class="ul-objects">
+                    {% for work in works %}
+                    <li class="li-object" onclick="loadContent('work', {{ work.id }})">{{ work.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="right-content">
+        <div class="experience-block-content">
+            {% block experience_content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
 
-    <h2><a href="{% url 'work' %}">Work</a></h2>
-        {% block work_content %}
-        {% endblock %}
-
+<script src="{% static 'js/experience-page.js' %}"></script>
 
 
 {% endblock %}

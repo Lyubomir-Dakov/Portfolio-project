@@ -10,6 +10,8 @@ body {
     font-family: "Times New Roman", Times, serif;
     position: relative;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .title h1 {
@@ -35,6 +37,7 @@ body {
     padding: 10px;
     width: 75%;
     box-sizing: border-box;
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .about-technologies h3 {
