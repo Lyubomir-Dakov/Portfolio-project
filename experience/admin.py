@@ -26,9 +26,13 @@ class WorkAdmin(admin.ModelAdmin):
         ["Base information", {"fields": ["name", "logo_svg", "location", "title"]}],
         ["Learned", {"fields": ["technologies", "skills"]}],
         ["Period", {"fields": ["start_date", "end_date"]}],
-        ["History records", {"fields": ["created_on", "updated_on"]}]
+        ["History records", {"fields": ["created_on", "updated_on"]}],
+        ["Slug", {"fields": ["slug"]}]
     ]
     readonly_fields = ["created_on", "updated_on"]
+    prepopulated_fields = {"slug": ("name",)}
+    list_display = ("name", "display_order")
+    list_editable = ("display_order",)
 
 
 @admin.register(Education)
@@ -38,6 +42,10 @@ class EducationAdmin(admin.ModelAdmin):
         ["Learned", {"fields": ["technologies", "skills"]}],
         ["Certificates", {"fields": ["certificates"]}],
         ["Period", {"fields": ["start_date", "end_date"]}],
-        ["History records", {"fields": ["created_on", "updated_on"]}]
+        ["History records", {"fields": ["created_on", "updated_on"]}],
+        ["Slug", {"fields": ["slug"]}]
     ]
     readonly_fields = ["created_on", "updated_on"]
+    prepopulated_fields = {"slug": ("name",)}
+    list_display = ("name", "display_order")
+    list_editable = ("display_order",)

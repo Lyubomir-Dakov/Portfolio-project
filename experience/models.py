@@ -63,6 +63,8 @@ class BaseExperienceContent(models.Model):
     TECHNOLOGIES_VERBOSE_NAME = "Technologies"
     LOGO_SVG_VERBOSE_NAME = "Logo"
     LOGO_SVG_HELP_TEXT = "Paste your SVG code here."
+    DISPLAY_ORDER_DEFAULT = 0
+    DISPLAY_ORDER_HELP_TEXT = "Determines display order in the list"
 
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
@@ -88,15 +90,17 @@ class BaseExperienceContent(models.Model):
         blank=True,
         help_text=LOGO_SVG_HELP_TEXT)
 
-    def clean(self):
-        validate_end_date(self.start_date, self.end_date)
+    slug = models.SlugField(
+        default="",
+        null=False)
+
+    display_order = models.PositiveIntegerField(
+        default=DISPLAY_ORDER_DEFAULT,
+        help_text=DISPLAY_ORDER_HELP_TEXT)
 
     def save(self, *args, **kwargs):
         self.full_clean()
         super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         abstract = True
@@ -133,6 +137,12 @@ class Work(BaseExperienceContent):
         null=True,
         blank=True
     )
+
+    def clean(self):
+        validate_end_date(self.start_date, self.end_date)
+
+    def __str__(self):
+        return self.name
 
 
 class Education(BaseExperienceContent):
@@ -172,3 +182,9 @@ class Education(BaseExperienceContent):
         null=True,
         blank=True
     )
+
+    def clean(self):
+        validate_end_date(self.start_date, self.end_date)
+
+    def __str__(self):
+        return self.name

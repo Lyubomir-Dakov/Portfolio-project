@@ -8,7 +8,6 @@ body {
 
 .experience-page-content {
     font-family: "Times New Roman", Times, serif;
-
     display:flex;
     flex-direction: row;
     align-items: flex-start;
@@ -20,17 +19,15 @@ body {
     box-sizing: border-box;
 }
 
-
-
 .left-content {
     width: 35%;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    padding-top: 100px;
 }
 
 .navigation-content {
-
     padding: 20px;
     box-sizing: border-box;
 }
@@ -56,19 +53,27 @@ body {
 }
 
 .ul-objects {
-    color: #a7a5a5;
     list-style-type: none;
     padding: 0;
     margin: 0;
     font-size: 23px;
+    visibility: hidden;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 1.2s ease-in-out;
+    opacity: 0;
+    transition: max-height 1.2s ease-in-out, opacity 1.2s ease-in-out, visibility 0s 1.2s;
 }
 
 .ul-objects.visible {
-    max-height: 100px; /* Set to the maximum height you expect your list to have */
-    /* You may need to adjust this value based on the content of the ul */
+    visibility: visible;
+    max-height: 100px;
+    opacity: 1;
+    transition: max-height 1.2s ease-in-out, opacity 1.2s ease-in-out, visibility 0s;
+}
+
+.ul-objects a {
+    text-decoration: none;
+    color: #a7a5a5;
 }
 
 .right-content {
@@ -78,11 +83,165 @@ body {
     gap: 20px;
 }
 
-.experience-block-content {
-    border: 2px solid #0074e8;
-    border-radius: 20px;
-    padding: 20px;
-    box-sizing: border-box; /* Include padding and border in the width */
+.right-content-middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
 }
 
+.right-content-left, .right-content-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
+.right-content-right {
+    margin-top: 20px;
+    align-items: flex-end;
+}
+
+.experience-block-content {
+    color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    align-items: center;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.logo-name .object-logo {
+    margin-right: 50px;
+}
+
+.logo-name .object-name {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.object-speciality {
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    align-items: center;
+    font-size: 30px;
+    color: #a7a5a5;
+}
+
+.location-period {
+    align-items: right;
+    padding: 20px;
+    padding-top: 0px;
+    font-size: 23px;
+    color: white;
+}
+
+.object-location, object-period {
+    font-size: 23px;
+}
+
+.object-certificates, .object-diploma {
+    flex-direction: column;
+    font-size: 21px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.object-skill-work {
+    margin-top: 70px;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.object-skill-work h4 {
+    font-size: 30px;
+    color: #a7a5a5;
+}
+
+.object-skill-work div {
+    font-size: 21px;
+}
+
+.object-certificates a {
+    text-decoration: none;
+    color: #0074e8;
+    position: right;
+}
+
+.object-diploma a {
+    text-decoration: none;
+    color: #0074e8;
+    position: right;
+}
+
+.list-technologies {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 80px;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 10px 20px;
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.18);
+    margin-top: 20px;
+    width: fit-content;
+}
+
+.list-technologies span {
+    width: 60px;
+    height: 60px;
+    margin: 0 7px;
+}
+
+.list-technologies span svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 1.7s;
+}
+
+.list-technologies span:hover svg {
+    transform: rotateY(360deg);
+}
+
+.object-skill, .object-technology {
+    padding: 20px;
+}
+
+.object-skill h4 {
+    font-size: 30px;
+    color: #a7a5a5;
+}
+
+.object-skill div {
+    font-size: 21px;
+    color: white;
+}
+
+.object-technology h4 {
+    font-size: 30px;
+    color: #a7a5a5;
+}
+
+.right-content-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.list-technologies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

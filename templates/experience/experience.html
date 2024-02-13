@@ -10,22 +10,22 @@
 <div class="experience-page-content">
     <div class="left-content">
         <div class="navigation-content">
-            <h3 class="content-title" onclick="toggleVisibility('education-list')">Education</h3>
+            <h3 class="content-title" onclick="toggleVisibility('education-list')" data-target="work-list">Education</h3>
             <div class="experience-objects">
                 <ul id="education-list" class="ul-objects">
                     {% for education in educations %}
-                    <li class="li-object" onclick="loadContent('education', {{ education.id }})">{{ education.name }}</li>
+                    <li class="li-object"><a href="{% url 'education' slug=education.slug %}">{{ education.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
 
         <div class="navigation-content">
-            <h3 class="content-title" onclick="toggleVisibility('work-list')">Work</h3>
+            <h3 class="content-title" onclick="toggleVisibility('work-list')" data-target="work-list">Work</h3>
             <div class="experience-objects">
                 <ul id="work-list" class="ul-objects">
                     {% for work in works %}
-                    <li class="li-object" onclick="loadContent('work', {{ work.id }})">{{ work.name }}</li>
+                    <li class="li-object"><a href="{% url 'work' slug=work.slug %}">{{ work.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
