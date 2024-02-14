@@ -31,8 +31,6 @@ class WorkAdmin(admin.ModelAdmin):
     ]
     readonly_fields = ["created_on", "updated_on"]
     prepopulated_fields = {"slug": ("name",)}
-    list_display = ("name", "display_order")
-    list_editable = ("display_order",)
 
 
 @admin.register(Education)
@@ -47,5 +45,3 @@ class EducationAdmin(admin.ModelAdmin):
     ]
     readonly_fields = ["created_on", "updated_on"]
     prepopulated_fields = {"slug": ("name",)}
-    list_display = ("name", "display_order")
-    list_editable = ("display_order",)

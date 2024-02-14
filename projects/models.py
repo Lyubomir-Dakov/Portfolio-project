@@ -1,30 +1,24 @@
-from django.core.validators import MaxValueValidator, MinValueValidator, URLValidator, MinLengthValidator, \
+from django.core.validators import URLValidator, MinLengthValidator, \
     RegexValidator
 from django.db import models
-from django.utils import timezone
+from experience.models import Technology  # type: ignore
 
 
 class Project(models.Model):
-    YEAR_MIN_VALUE = 2021
-    YEAR_MIN_VALUE_ERROR_MESSAGE = "Choose year after 2021."
-    YEAR_MAX_VALUE = timezone.now().year
-    YEAR_MAX_VALUE_ERROR_MESSAGE = f"Choose valid year less than or equal to {YEAR_MAX_VALUE}"
     TITLE_MAX_LENGTH = 50
     TITLE_ALLOWED_CHARACTERS_PATTERN = r"^[a-zA-Z0-9\s\-_]+$"
     TITLE_ALLOWED_CHARACTERS_ERROR_MESSAGE = "Title can only contain letters, numbers, spaces, hyphens, and underscores."
     DESCRIPTION_MIN_LENGTH = 50
     DESCRIPTION_MIN_LENGTH_ERROR_MESSAGE = "Project description should be at least 50 characters long."
     DESCRIPTION_MAX_LENGTH = 2500
-    BUILD_WITH_MAX_LENGTH = 300
+    TECHNOLOGIES_VERBOSE_NAME = "Technologies"
     PROJECT_LINK_MIN_LENGTH = 7
     PROJECT_LINK_MIN_LENGTH_ERROR_MESSAGE = "Project link must be at least 7 characters long."
     GITHUB_LINK_MIN_LENGTH = 7
     GITHUB_LINK_MIN_LENGTH_ERROR_MESSAGE = "GitHub link must be at least 7 characters long."
+    PROJECT_IMAGE_UPLOAD_TO = "images/projects/"
 
-    year = models.PositiveIntegerField(
-        validators=[
-            MinValueValidator(limit_value=YEAR_MIN_VALUE, message=YEAR_MIN_VALUE_ERROR_MESSAGE),
-            MaxValueValidator(limit_value=YEAR_MAX_VALUE, message=YEAR_MAX_VALUE_ERROR_MESSAGE)],
+    date = models.DateField(
         null=False,
         blank=False)
     title = models.CharField(
@@ -39,10 +33,10 @@ class Project(models.Model):
         max_length=DESCRIPTION_MAX_LENGTH,
         null=False,
         blank=False)
-    build_with = models.CharField(
-        max_length=BUILD_WITH_MAX_LENGTH,
-        null=False,
-        blank=False)
+    technologies = models.ManyToManyField(
+        Technology,
+        verbose_name=TECHNOLOGIES_VERBOSE_NAME,
+        blank=True)
     project_link = models.URLField(
         validators=[
             URLValidator(),
@@ -58,8 +52,18 @@ class Project(models.Model):
         blank=False,
         unique=True)
 
-    # class Meta:
-    #     ordering = ["-year"]
+    project_image = models.ImageField(
+        upload_to=PROJECT_IMAGE_UPLOAD_TO,
+        null=True,
+        blank=True
+    )
+
+    slug = models.SlugField(
+        default="",
+        null=False)
+
+    class Meta:
+        ordering = ["-date"]
 
     def __str__(self):
         return self.title

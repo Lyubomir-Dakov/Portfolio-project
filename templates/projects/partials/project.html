@@ -1,0 +1,61 @@
+{% extends 'projects/projects.html' %}
+{% load static %}
+
+{% block project_content %}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+<div class="project-object">
+    <div class="project-container">
+        <div class="project-top-content">
+            <div class="project-title-date">
+                <div class="project-title">
+                    {{ object.title }}
+                </div>
+
+                <div class="project-date">
+                    Created:&emsp;{{ object.date|date:"M Y" }}
+                </div>
+
+                <div class="project-github-link">
+                    <a href="{{ object.github_link }}">
+                        <i class="fab fa-github icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            {% if object.project_link %}
+            <div class="project-image-url">
+                <a href="{{ object.project_link }}">
+                    <div class="hover-overlay"></div>
+                    <img src="{{ object.project_image.url }}">
+                    <div class="overlay-content">
+                        <div class="project-name">{{ object.title }}</div>
+                        <i class="fa fa-external-link overlay-icon"></i>
+                    </div>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="project-description">
+            {{ object.description }}
+        </div>
+        <div class="object-technology">
+
+            <div class="list-technologies">
+                {% for technology in object.technologies.all %}
+                <span>{{ technology.logo_svg|safe }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

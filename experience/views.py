@@ -22,8 +22,8 @@ class WorkView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['educations'] = Education.objects.all()
-        context['works'] = Work.objects.all()
+        context["educations"] = Education.objects.all()
+        context["works"] = Work.objects.all()
         return context
 
 

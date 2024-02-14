@@ -2,26 +2,30 @@
 {% load static %}
 
 {% block additional_links %}
-    <link rel="stylesheet" href="{% static 'css/contact_page.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact_page.css' %}">
 {% endblock %}
 
 {% block page_content %}
 
-<form action="{% url 'contact' %}" method="post">
-    <div>
-        <p><strong>Name: <br>{{ form.name }}</strong></p>
+<form class="contact-form" action="{% url 'contact' %}" method="post">
+    <div class="credentials">
+        <h5>Name*</h5>
+        <div>{{ form.name }}</div>
     </div>
-    <div>
-        <p><strong>Organization: </strong>{{ form.organization }}</p>
+    <div class="credentials">
+        <h5>Organization</h5>
+        <div>{{ form.organization }}</div>
     </div>
-    <div>
-        <p><strong>Email: </strong>{{ form.email }}</p>
+    <div class="credentials">
+        <h5>Email*</h5>
+        <div>{{ form.email }}</div>
     </div>
-    <div>
-        <p><strong>Message: </strong>{{ form.message }}</p>
+    <div class="credentials">
+        <h5>Message*</h5>
+        <div>{{ form.message }}</div>
     </div>
-    <div>
-        <button type="submit">Send</button>
+    <div class="form-submit">
+        <button class="contact-button" type="submit"><span>S</span><span>e</span><span>n</span><span>d</span></button>
     </div>
     {% csrf_token %}
 </form>

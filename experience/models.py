@@ -63,8 +63,6 @@ class BaseExperienceContent(models.Model):
     TECHNOLOGIES_VERBOSE_NAME = "Technologies"
     LOGO_SVG_VERBOSE_NAME = "Logo"
     LOGO_SVG_HELP_TEXT = "Paste your SVG code here."
-    DISPLAY_ORDER_DEFAULT = 0
-    DISPLAY_ORDER_HELP_TEXT = "Determines display order in the list"
 
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
@@ -93,10 +91,6 @@ class BaseExperienceContent(models.Model):
     slug = models.SlugField(
         default="",
         null=False)
-
-    display_order = models.PositiveIntegerField(
-        default=DISPLAY_ORDER_DEFAULT,
-        help_text=DISPLAY_ORDER_HELP_TEXT)
 
     def save(self, *args, **kwargs):
         self.full_clean()
@@ -188,3 +182,6 @@ class Education(BaseExperienceContent):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ["-start_date"]

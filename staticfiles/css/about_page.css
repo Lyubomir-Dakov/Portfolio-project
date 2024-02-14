@@ -51,7 +51,7 @@ body {
     text-align: center;
 }
 
-
+/*
 .list-technologies {
     position: absolute;
     top: 75%;
@@ -64,13 +64,33 @@ body {
     padding: 10px 50px;
     box-sizing: border-box;
     box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.18);
+}*/
+
+.list-technologies {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    max-width: 750px; /* Maximum width before items start to wrap */
+    width: 100%; /* Make the width responsive */
+    text-align: center;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 10px 35px;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.18);
+    margin-top: 30px;
 }
 
 .list-technologies span {
     width: 80px;
     height: 80px;
     display: inline-block;
-    margin: 0 7px;
+    margin: 12px 7px 12px 7px;
 }
 
 .list-technologies span svg {
