@@ -1,0 +1,8 @@
+html {
+    overflow: hidden; /* This will prevent scrolling */
+    height: 100%; /* This ensures that the html and body tags take up the full viewport height */
+}
+
+.no-scroll {
+    overflow: hidden;
+}
