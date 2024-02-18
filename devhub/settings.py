@@ -2,14 +2,15 @@ import os.path
 from pathlib import Path
 from decouple import config
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-# ALLOWED_HOSTS = [".awsapprunner.com"]
-ALLOWED_HOSTS = config("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(' ')
+# ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -113,6 +114,28 @@ EMAIL_USE_SSL = True
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
+LOGGING = {
+    'version': 1,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        }
+    }
+}
+
 
 # DEPLOYMENT
 # STORAGES = {
@@ -123,3 +146,5 @@ EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 #         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
 #     },
 # }
+
+
