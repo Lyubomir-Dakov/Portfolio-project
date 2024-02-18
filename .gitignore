@@ -154,7 +154,4 @@ GitHub.sublime-settings
 media
 staticfiles
 *.pyc
-postgresql/pgdata
-docker-compose.prod.yml
-docker-compose.yml
 envs

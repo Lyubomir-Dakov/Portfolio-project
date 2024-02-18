@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./devhub/:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./envs/.env
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: igrach123
+      POSTGRES_USER: postgres-user
+      POSTGRES_DB: portfolio_db
+      PGDATA: /var/lib/postgresql/data/pgdata
+#      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
