@@ -22,6 +22,5 @@ services:
       POSTGRES_USER: postgres-user
       POSTGRES_DB: portfolio_db
       PGDATA: /var/lib/postgresql/data/pgdata
-#      PGDATA: /var/lib/postgresql/data
     volumes:
       - ./postgresql:/var/lib/postgresql/data
