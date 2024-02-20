@@ -7,6 +7,7 @@ services:
     command: gunicorn devhub.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./static:/tmp/devhub/static
+      - ./media:/home/app/web/media
     ports:
       - 8000:8000
     env_file:
@@ -28,10 +29,11 @@ services:
   nginx:
     image: nginx
     ports:
-      - 81:80
+      - 80:80
       - 443:443
     volumes:
       - ./static:/home/app/web/static
+      - ./media:/home/app/web/media
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/logs:/var/log/nginx
       - ./certbot/www:/var/www/certbot/:ro
