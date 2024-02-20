@@ -195,8 +195,13 @@ body {
 }
 
 .project-github-link {
+    display: flex; /* Use Flexbox */
+    align-items: center; /* Center items vertically */
+    gap: 50px; /* Set gap between items */
     padding: 20px;
     padding-top: 0px;
+    font-size: 27px;
+    color: #a7a5a5;
 }
 
 .project-description {

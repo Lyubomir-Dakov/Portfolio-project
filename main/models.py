@@ -59,7 +59,7 @@ class HomePageContent(BasePageContent):
     GITHUB_VERBOSE_NAME = "GitHub"
     LINKEDIN_VERBOSE_NAME = "LinkedIn"
     CV_VERBOSE_NAME = "CV"
-    CV_UPLOAD_TO = "staticfiles/files/"
+    CV_UPLOAD_TO = "documents/cv/"
 
     phone_number = models.CharField(
         verbose_name=PHONE_NUMBER_VERBOSE_NAME,

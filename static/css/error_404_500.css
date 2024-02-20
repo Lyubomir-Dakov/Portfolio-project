@@ -1,0 +1,35 @@
+body {
+    background-image: url('../images/background/about_page.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.content-container {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.big-message {
+    color: white;
+    font-size: 100px;
+}
+
+.small-message {
+    color: #a7a5a5;
+    font-size: 35px;
+    margin-top: 20px;
+}
+
+.link-message {
+    color: white;
+    font-size: 35px;
+    margin-top: 20px;
+}
+
+.link-message a {
+    color: #0074e8;
+}
+
