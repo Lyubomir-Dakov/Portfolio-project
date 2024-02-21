@@ -115,7 +115,7 @@ body {
 .contact-me {
     border: 2px solid rgba(255,255,255,.25);
     border-color: #0074e8;
-    background-color: #280d22;
+    background-color: #340854;
     color: #fff;
     height: 60px;
     padding: 8px 40px;
@@ -211,7 +211,7 @@ body {
 
 .contact-me:hover {
     box-shadow: 0 0 12px #ffffff;
-    background-color: #280d22;
+    background-color: #340854;
     color: #d017b8;
 }
 

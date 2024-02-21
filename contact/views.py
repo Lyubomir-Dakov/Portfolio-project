@@ -24,7 +24,7 @@ class ContactFormView(FormView):
             email=email,
             message=message)
 
-        subject = "Lyubomir Dakov"
+        subject = "Greetings from Lyubomir Dakov"
         message = f"""
         Hello, {name}!
         Thank you from contacting me.
