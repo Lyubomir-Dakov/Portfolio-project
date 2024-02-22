@@ -139,7 +139,7 @@ CSRF_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = ['https://lyubomir-dakov.com', 'https://www.lyubomir-dakov.com']
 
-# DEPLOYMENT
+
 # STORAGES = {
 #     "default": {
 #         "BACKEND": "django.core.files.storage.FileSystemStorage",
@@ -148,3 +148,4 @@ CSRF_TRUSTED_ORIGINS = ['https://lyubomir-dakov.com', 'https://www.lyubomir-dako
 #         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
 #     },
 # }
+
