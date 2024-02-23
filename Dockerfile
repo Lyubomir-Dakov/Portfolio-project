@@ -1,7 +1,7 @@
 FROM python:3.10
 
 RUN apt update -y \
-    && apt update -y
+    && apt upgrade -y
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

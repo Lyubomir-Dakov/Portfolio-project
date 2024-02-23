@@ -1,18 +1,14 @@
 import os
 from pathlib import Path
-
-from decouple import Config, RepositoryEnv
+from utils.utils import str_to_bool  # type: ignore
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-ENVIRONMENT = os.getenv('DJANGO_ENV', 'development')
-env_file = os.path.join(BASE_DIR, 'envs', '.env.prod' if ENVIRONMENT == 'production' else '.env')
-config = Config(RepositoryEnv(env_file))
 
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = config("DEBUG", default=False, cast=bool)
+DEBUG = str_to_bool(os.environ.get("DEBUG"))
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(' ')
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split()
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -64,12 +60,12 @@ WSGI_APPLICATION = "devhub.wsgi.application"
 
 DATABASES = {
     'default': {
-        "ENGINE": config("DB_ENGINE"),
-        "NAME": config("DB_NAME"),
-        "USER": config("DB_USER"),
-        "PASSWORD": config("DB_PASSWORD"),
-        "HOST": config("DB_HOST"),
-        "PORT": config("DB_PORT"),
+        "ENGINE": os.environ.get("DB_ENGINE"),
+        "NAME": os.environ.get("DB_NAME"),
+        "USER": os.environ.get("DB_USER"),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT"),
     }
 }
 
@@ -108,13 +104,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = '/media/'
 
-EMAIL_BACKEND = config("EMAIL_BACKEND")
-EMAIL_HOST = config("EMAIL_HOST")
-EMAIL_PORT = config("EMAIL_PORT", cast=int)
-EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool)
-EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool)
-EMAIL_HOST_USER = config("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND")
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT"))
+EMAIL_USE_TLS = str_to_bool(os.environ.get("EMAIL_USE_TLS"))
+EMAIL_USE_SSL = str_to_bool(os.environ.get("EMAIL_USE_SSL"))
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 LOGGING = {
     'version': 1,
@@ -138,6 +134,6 @@ LOGGING = {
     }
 }
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = str_to_bool(os.environ.get("CSRF_COOKIE_SECURE"))
 
-CSRF_TRUSTED_ORIGINS = ['https://lyubomir-dakov.com', 'https://www.lyubomir-dakov.com']
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split()
