@@ -25,11 +25,11 @@
     </div>
 
     <div class="right-content-right">
-        {% if object.certificates.first %}
+        {% if object.diploma %}
         <div class="object-diploma">
             <h4>Diploma</h4>
-            <div>
-                <a href="{{ certificate.link }}">{{ object.certificates.first.name }}</a>
+            <div class="education-document">
+                <a href="{{ object.diploma.link }}">{{ object.diploma.name }}</a>
             </div>
         </div>
         {% endif %}
@@ -38,7 +38,7 @@
         <div class="object-certificates">
             <h4>Certificates</h4>
             {% for certificate in object.certificates.all %}
-            <div>
+            <div class="education-document">
                 <a href="{{ certificate.link }}">{{ certificate.name }}</a>
             </div>
             {% endfor %}

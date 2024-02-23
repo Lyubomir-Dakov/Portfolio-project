@@ -156,3 +156,4 @@ staticfiles
 *.pyc
 envs
 postgresql/pgdata/
+.env

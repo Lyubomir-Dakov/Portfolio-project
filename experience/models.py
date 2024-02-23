@@ -56,6 +56,29 @@ class Certificate(BaseAbility):
     date = models.CharField()
 
 
+class Diploma(models.Model):
+    DISPLAY_ORDER_HELP_TEXT = "Determines display order in the list"
+    NAME_MAX_LENGTH = 50
+
+    name = models.CharField(
+        max_length=NAME_MAX_LENGTH,
+        null=False,
+        blank=False)
+
+    link = models.URLField(
+        null=True,
+        blank=True
+    )
+
+    date = models.CharField(
+        null=False,
+        blank=False
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class BaseExperienceContent(models.Model):
     LOCATION_VERBOSE_NAME = "Location"
     LOCATION_MAX_LENGTH = 100
@@ -144,6 +167,7 @@ class Education(BaseExperienceContent):
     NAME_MAX_LENGTH = 50
     SPECIALITY_VERBOSE_NAME = "Speciality"
     CERTIFICATES_VERBOSE_NAME = "Certificates"
+    DIPLOMA_VERBOSE_NAME = "Diploma"
     START_DATE_VERBOSE_NAME = "Start school or university"
     END_DATE_VERBOSE_NAME = "Graduate"
     SPECIALITY_MAX_LENGTH = 100
@@ -166,16 +190,22 @@ class Education(BaseExperienceContent):
         verbose_name=CERTIFICATES_VERBOSE_NAME,
         blank=True)
 
+    diploma = models.OneToOneField(
+        Diploma,
+        verbose_name=DIPLOMA_VERBOSE_NAME,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True)
+
     start_date = models.DateField(
         verbose_name=START_DATE_VERBOSE_NAME,
         null=False,
-        blank=False
-    )
+        blank=False)
+
     end_date = models.DateField(
         verbose_name=END_DATE_VERBOSE_NAME,
         null=True,
-        blank=True
-    )
+        blank=True)
 
     def clean(self):
         validate_end_date(self.start_date, self.end_date)

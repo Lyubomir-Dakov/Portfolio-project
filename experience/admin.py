@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Skill, Technology, Certificate, Work, Education
+from .models import Skill, Technology, Certificate, Work, Education, Diploma
 
 
 @admin.register(Skill)
@@ -20,6 +20,12 @@ class CertificateAdmin(admin.ModelAdmin):
     list_editable = ("link", "display_order")
 
 
+@admin.register(Diploma)
+class CertificateAdmin(admin.ModelAdmin):
+    list_display = ("name", "link",)
+    list_editable = ("link",)
+
+
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -38,7 +44,7 @@ class EducationAdmin(admin.ModelAdmin):
     fieldsets = [
         ["Base information", {"fields": ["name", "logo_svg", "location", "speciality"]}],
         ["Learned", {"fields": ["technologies", "skills"]}],
-        ["Certificates", {"fields": ["certificates"]}],
+        ["Certificates", {"fields": ["diploma", "certificates"]}],
         ["Period", {"fields": ["start_date", "end_date"]}],
         ["History records", {"fields": ["created_on", "updated_on"]}],
         ["Slug", {"fields": ["slug"]}]

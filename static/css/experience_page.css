@@ -245,3 +245,28 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.education-document a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.education-document a::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: width 0.7s ease-out;
+}
+
+.education-document a:hover::after,
+.education-document a:focus::after { /* Also show the underline on focus for accessibility */
+    width: 100%; /* Full width on hover/focus */
+    left: 0; /* Ensure it stretches all the way to the left */
+    right: auto; /* Reset the right property */
+}
