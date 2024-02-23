@@ -265,8 +265,8 @@ body {
 }
 
 .education-document a:hover::after,
-.education-document a:focus::after { /* Also show the underline on focus for accessibility */
-    width: 100%; /* Full width on hover/focus */
-    left: 0; /* Ensure it stretches all the way to the left */
-    right: auto; /* Reset the right property */
+.education-document a:focus::after {
+    width: 100%;
+    left: 0;
+    right: auto;
 }

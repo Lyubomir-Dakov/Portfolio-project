@@ -1,8 +1,14 @@
 {% extends 'main/index.html' %}
 {% load static %}
+
+{% block additional_links %}
+<link rel="stylesheet" href="{% static 'css/thanks_page.css' %}">
+{% endblock %}
+
 {% block page_content %}
-
-<h1>Hello, {{ contact_name }}!</h1>
-<h1>{{ message }}</h1>
-
+<div class="content-container">
+    <div class="big-message">Hello, {{ contact_name }}!</div>
+    <div class="small-message">{{ message }}</div>
+    <!--    <div class="link-message">You could go back to <a href="https://www.lyubomir-dakov.com/">Homepage</a>-->
+</div>
 {% endblock %}

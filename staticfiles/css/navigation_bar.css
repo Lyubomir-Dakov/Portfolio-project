@@ -217,18 +217,17 @@ body {
 
 .navbar-nav {
     display: flex;
-    /* Centers the items horizontally */
-    align-items: center; /* Centers the items vertically */
-    list-style-type: none; /* Removes the bullet points */
-    padding: 0; /* Removes the default padding */
-    margin: 0 auto; /* Centers the list and removes default margin */
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
 }
 
 .nav-item {
-    display: flex; /* Flex display to center the anchor */
-    justify-content: left; /* Centers the anchor horizontally */
-    align-items: center; /* Centers the anchor vertically */
-    margin: 0 10px; /* Space between navigation items */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0 10px;
 }
 
 .navbar-nav li:nth-child(1) {
