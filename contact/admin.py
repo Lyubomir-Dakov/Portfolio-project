@@ -13,3 +13,4 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ["name", "organization", "date"]
     list_filter = ["name", "organization", "date"]
     search_fields = ["name", "organization", "date"]
+    readonly_fields = ["date"]

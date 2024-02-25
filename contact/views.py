@@ -1,10 +1,10 @@
-from django.http import HttpRequest, HttpResponse
+from django.http import Http404
 from django.shortcuts import render
 from django.views.generic import FormView
+from utils.utils import send_email_to_user, send_email_to_me  # type: ignore
+
 from .forms import ContactForm
 from .models import Contact
-from django.conf import settings
-from django.core.mail import send_mail
 
 
 class ContactFormView(FormView):
@@ -18,26 +18,24 @@ class ContactFormView(FormView):
         email = form.cleaned_data["email"]
         message = form.cleaned_data["message"]
         self.request.session["contact_name"] = name
-        Contact.objects.create(
+        contact = Contact.objects.create(
             name=name,
             organization=organization,
             email=email,
             message=message)
 
-        subject = "Greetings from Lyubomir Dakov"
-        message = f"""
-        Hello, {name}!
-        Thank you from contacting me.
-        
-        Best regards
-        Lyubomir"""
-        from_email = settings.EMAIL_HOST_USER
-        recipient_list = [email]
-        send_mail(subject=subject, message=message, from_email=from_email, recipient_list=recipient_list)
+        send_email_to_user(contact)
+        send_email_to_me(contact)
+        self.request.session['form_submitted'] = True
+
         return super().form_valid(form)
 
 
 def thanks(request):
+    if not request.session.get('form_submitted', False):
+        # If the form wasn't submitted, raise a 404 or redirect as needed
+        raise Http404("Page not found.")
+    request.session.pop('form_submitted', None)
     context = {
         "message": "Thank you for contacting me",
         "contact_name": request.session.get("contact_name")
